@@ -29,12 +29,19 @@ public class Calcula {
         return numContribuinte;
     }
     public static void menu(Operacoes op, float salario, int numDependente){
+        float descontoInss = op.calculaInss(salario);
+        float salarioComInss = op.salarioDescontadoInss(salario, descontoInss);
+        float descontoDependente = op.descontoDependente(numDependente, salarioComInss);
+        float impostoIrpf = op.impostoIrpf(salarioComInss, descontoDependente);
+        float descontoTotal = op.descontoTotal(impostoIrpf, descontoInss);
+        float salarioFinal = op.salarioFinal(salario, descontoTotal);
+        
         JOptionPane.showMessageDialog(null, "Salário: " + salario +
                 "\n" + "Número de dependentes: " + numDependente + 
                 "\n" + "-----------------------------------------" +
-                "\n" + "imposto_inss: " + op.calculaInss(salario) + 
-                "\n" + "imposto_irpf: " + op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))) +
-                "\n" + "desconto_total: " + op.descontoTotal(op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))), op.calculaInss(salario)) +
-                "\n" + "salário_final: " + op.salarioFinal(salario, op.descontoTotal(op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))), op.calculaInss(salario))));
+                "\n" + "imposto_inss: " + descontoInss + 
+                "\n" + "imposto_irpf: " + impostoIrpf +
+                "\n" + "desconto_total: " + descontoTotal +
+                "\n" + "salário_final: " + salarioFinal);
     }
 }

@@ -16,7 +16,7 @@ public class OperacoesTest extends TestCase {
         
     }
     
-      public void testSalarioDescontadoInss(){
+    public void testSalarioDescontadoInss(){
         float novoSalario;
         
         novoSalario = op.salarioDescontadoInss(3000f, 330f);
@@ -24,7 +24,7 @@ public class OperacoesTest extends TestCase {
         
     }
     
-     public void testDescontoDependente(){
+    public void testDescontoDependente(){
         float salarioDescontoDep;
         
         salarioDescontoDep = op.descontoDependente(2, 2670f);
@@ -32,7 +32,7 @@ public class OperacoesTest extends TestCase {
           
      }
      
-     public void testImpostoIrpf(){
+    public void testImpostoIrpf(){
         float calculaIrpf;
          
         calculaIrpf = op.impostoIrpf(2670.0f, 2290.82f);
@@ -41,18 +41,19 @@ public class OperacoesTest extends TestCase {
         
      }
      
-     public void testDescontoTotal(){
+    public void testDescontoTotal(){
          float descontoTotal;
          
          descontoTotal = op.descontoTotal(29.01f, 330f);
          assertEquals(descontoTotal, 359.01f);
      }
      
-     public void testSalarioFinal(){
+    public void testSalarioFinal(){
          float salarioFinal;
          
          salarioFinal = op.salarioFinal(3000, 359.01f);
          assertEquals(salarioFinal, 2640.99f);
      }
     
+
 }
