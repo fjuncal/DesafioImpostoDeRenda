@@ -30,9 +30,9 @@ public class Calcula {
     }
     public static void menu(Operacoes op, float salario, int numDependente){
         float descontoInss = op.calculaInss(salario);
-        float salarioComInss = op.salarioDescontadoInss(salario, descontoInss);
-        float descontoDependente = op.descontoDependente(numDependente, salarioComInss);
-        float impostoIrpf = op.impostoIrpf(salarioComInss, descontoDependente);
+        float salarioComDescontoInss = op.salarioDescontadoInss(salario, descontoInss);
+        float descontoDependente = op.descontoDependente(numDependente, salarioComDescontoInss);
+        float impostoIrpf = op.impostoIrpf(salarioComDescontoInss, descontoDependente);
         float descontoTotal = op.descontoTotal(impostoIrpf, descontoInss);
         float salarioFinal = op.salarioFinal(salario, descontoTotal);
         
