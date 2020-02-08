@@ -1,6 +1,10 @@
 package com.desafioimposto.desafioimpostoderenda;
 public class Operacoes {
-      public float calculaInss(float salario){
+
+    public Operacoes() {
+    }
+    
+    public float calculaInss(float salario){
         float desconto = 0;
         if (salario <= 1751.81f){
             desconto = salario * 0.08f;
@@ -17,13 +21,13 @@ public class Operacoes {
          }
         return desconto;
     }
-      public float salarioDescontadoInss(float salario, float descontoInss){
+    public float salarioDescontadoInss(float salario, float descontoInss){
         float novoSalario;
         
         novoSalario = salario - descontoInss;
         return novoSalario;
     }
-      public float descontoDependente (int numDependente, float salarioInss){
+    public float descontoDependente (int numDependente, float salarioInss){
          float valorDependente;
          float salarioDescontadoDep;
          
@@ -32,4 +36,45 @@ public class Operacoes {
          
          return salarioDescontadoDep;        
     }
+    public float impostoIrpf(float salarioInss, float salarioDescontadoDep){
+        float irpf;
+        float desconto;
+        float resultadoIrpf = 0;
+        if (salarioInss <= 1903.98){
+            return 0.0f;
+        
+        } else if (salarioInss <= 2826.65){
+            desconto = 142.80f;
+            irpf = salarioDescontadoDep * 0.075f;
+            resultadoIrpf = irpf - desconto;
+            return resultadoIrpf;
+            
+            } else if ((salarioInss >= 2826.66f) && (salarioInss <= 3751.05f)){
+                desconto = 354.80f;
+                irpf = salarioDescontadoDep * 0.15f;
+                resultadoIrpf = irpf - desconto;
+                return resultadoIrpf;
+            } else if((salarioInss >= 3751.06f) && (salarioInss <= 4664.68f)){
+                desconto = 636.13f;
+                irpf = salarioDescontadoDep * 0.225f;
+                resultadoIrpf = irpf - desconto;
+                return resultadoIrpf;
+                
+            } else if (salarioInss > 4664.68f){
+                desconto = 869.36f;
+                irpf = salarioDescontadoDep * 0.275f;
+                resultadoIrpf = irpf - desconto;
+                return resultadoIrpf;
+            }
+        return resultadoIrpf;
+        
+    }
+    public float descontoTotal (float resultadoIrpf, float descontoInss){
+        return resultadoIrpf + descontoInss;
+    }
+    public float salarioFinal (float salario, float descontoTotal){
+       return salario - descontoTotal;
+       
+   }
+      
 }
