@@ -9,25 +9,11 @@ public class Calcula {
         Operacoes op = new Operacoes();
         float salario;
         int numContribuinte;
-        float imposto_inss;
-        float imposto_irpf;
-        float desconto_total;
-        float salario_final;
+       
         
         salario = leSalario();
         numContribuinte = leNumDependente();
         menu(op, salario, numContribuinte);
-        
-        
-        
-        
-       
-//        System.out.println(op.calculaInss(3000));
-//        System.out.println(op.salarioDescontadoInss(3000f, 330f));
-//        System.out.println(op.descontoDependente(2, 2670f));
-//        System.out.println(op.impostoIrpf(2670f, 2290.82f));
-//        System.out.println(op.descontoTotal(29.01f, 330f));
-//        System.out.println(op.salarioFinal(3000, 359.01f));
         
         
     }
@@ -48,6 +34,7 @@ public class Calcula {
                 "\n" + "-----------------------------------------" +
                 "\n" + "imposto_inss: " + op.calculaInss(salario) + 
                 "\n" + "imposto_irpf: " + op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))) +
-                "\n" + "desconto_total: " + op.descontoTotal(op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))), op.calculaInss(salario)));
+                "\n" + "desconto_total: " + op.descontoTotal(op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))), op.calculaInss(salario)) +
+                "\n" + "salário_final: " + op.salarioFinal(salario, op.descontoTotal(op.impostoIrpf(op.salarioDescontadoInss(salario, op.calculaInss(salario)), op.descontoDependente(numDependente, op.salarioDescontadoInss(salario, op.calculaInss(salario)))), op.calculaInss(salario))));
     }
 }
