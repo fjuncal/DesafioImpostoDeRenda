@@ -1,6 +1,7 @@
 
 package com.desafioimposto.desafioimpostoderenda;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 
@@ -36,12 +37,19 @@ public class Calcula {
         float descontoTotal = op.descontoTotal(impostoIrpf, descontoInss);
         float salarioFinal = op.salarioFinal(salario, descontoTotal);
         
-        JOptionPane.showMessageDialog(null, "Salário: " + salario +
+        DecimalFormat df = new DecimalFormat("0.00");
+        String salarioFormatado = df.format(salario);
+        String descontoInssFormatado = df.format(descontoInss);
+        String impostoIrpfFormatado = df.format(impostoIrpf);
+        String descontoTotalFormatado = df.format(descontoTotal);
+        String salarioFinalFormatado = df.format(salarioFinal);
+        
+        JOptionPane.showMessageDialog(null, "Salário: " + salarioFormatado +
                 "\n" + "Número de dependentes: " + numDependente + 
                 "\n" + "-----------------------------------------" +
-                "\n" + "imposto_inss: " + descontoInss + 
-                "\n" + "imposto_irpf: " + impostoIrpf +
-                "\n" + "desconto_total: " + descontoTotal +
-                "\n" + "salário_final: " + salarioFinal);
+                "\n" + "imposto_inss: " + descontoInssFormatado + 
+                "\n" + "imposto_irpf: " + impostoIrpfFormatado +
+                "\n" + "desconto_total: " + descontoTotalFormatado +
+                "\n" + "salário_final: " + salarioFinalFormatado);
     }
 }
