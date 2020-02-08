@@ -4,6 +4,7 @@ public class Operacoes {
     public Operacoes() {
     }
     
+    //Este método calcula o desconto total do Inss.
     public float calculaInss(float salario){
         float desconto = 0;
         if (salario <= 1751.81f){
@@ -21,12 +22,15 @@ public class Operacoes {
          }
         return desconto;
     }
+    //Este método calcula o novo salário subtraindo o valor do Inss.
     public float salarioDescontadoInss(float salario, float descontoInss){
         float novoSalario;
         
         novoSalario = salario - descontoInss;
         return novoSalario;
     }
+    //Este método calcula o desconto de acordo com quantos dependentes a pessoa possui (valor por dependente 189.59,
+    // e depois subtrai o desconto dependente do salário do Inss (já descontado).
     public float descontoDependente (int numDependente, float salarioInss){
          float valorDependente;
          float salarioDescontadoDep;
@@ -36,6 +40,8 @@ public class Operacoes {
          
          return salarioDescontadoDep;        
     }
+    //este método calcula o ImpostoIrpf, de acordo com o desconto na tabela, dps multiplicando o salário já descontado dos dependentes com o juros da Alíquota(Irpf),
+    //subtraindo o Irpf do desconto da tabela, gerando um novo valor Irpf.
     public float impostoIrpf(float salarioInss, float salarioDescontadoDep){
         float irpf;
         float desconto;
@@ -69,9 +75,11 @@ public class Operacoes {
         return resultadoIrpf;
         
     }
+    //Este método calcula o desconto total do salário, somando o valor do Irpf + o valor do desconto do Inss, gerando o desconto total.
     public float descontoTotal (float resultadoIrpf, float descontoInss){
         return resultadoIrpf + descontoInss;
     }
+    //Este método calcula o valor final do salário, subtraindo o salário pelo desconto total (Irpf e Inss), gerando o salário final.
     public float salarioFinal (float salario, float descontoTotal){
        return salario - descontoTotal;
        
