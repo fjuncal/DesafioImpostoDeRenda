@@ -44,12 +44,12 @@ public class Calcula {
         String descontoTotalFormatado = df.format(descontoTotal);
         String salarioFinalFormatado = df.format(salarioFinal);
         
-        JOptionPane.showMessageDialog(null, "Salário: " + salarioFormatado +
+        JOptionPane.showMessageDialog(null, "Salário: " + "R$ " + salarioFormatado +
                 "\n" + "Número de dependentes: " + numDependente + 
                 "\n" + "-----------------------------------------" +
-                "\n" + "imposto_inss: " + descontoInssFormatado + 
-                "\n" + "imposto_irpf: " + impostoIrpfFormatado +
-                "\n" + "desconto_total: " + descontoTotalFormatado +
-                "\n" + "salário_final: " + salarioFinalFormatado);
+                "\n" + "imposto_inss: " +  "R$ " + descontoInssFormatado + 
+                "\n" + "imposto_irpf: " + "R$ " + impostoIrpfFormatado +
+                "\n" + "desconto_total: " + "R$ " + descontoTotalFormatado +
+                "\n" + "salário_final: " + "R$ " + salarioFinalFormatado);
     }
 }
